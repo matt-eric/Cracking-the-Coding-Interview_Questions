@@ -54,7 +54,7 @@ const getCurrentQuestionObject = ( displayName ) => {
 }
 
 const resetOutput = () => {
-    const outputElements = [ showResults, showExpectations, outcome ]
+    const outputElements = [ showResults, showExpectations, outcome, inputDisplay ]
     for(let i=0; i<outputElements.length; i++){
         outputElements[i]['innerHTML'] = null
     }
