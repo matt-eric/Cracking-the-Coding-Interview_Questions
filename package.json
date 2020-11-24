@@ -1,0 +1,15 @@
+{
+  "name": "cracking-the-coding-interview_questions",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "es-dev-server --app-index index.html --node-resolve --watch --open",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "es-dev-server": "^1.57.8"
+  }
+}
