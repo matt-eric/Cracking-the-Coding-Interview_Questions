@@ -6,6 +6,7 @@ const button = document.querySelector('button')
 const instructions = document.getElementById('instructions')
 const showResults = document.getElementById('results')
 const showExpectations = document.getElementById('expectations')
+const inputDisplay = document.getElementById('inputs')
 const outcome = document.getElementById('outcome')
 
 select.addEventListener( "change", ( e ) => {
@@ -23,8 +24,10 @@ const runMethodWithTestCases = ( question ) => {
     for(let i=0; i<inputs.length; i++){
         results.push( method(inputs[i]) )
     }
+    const stringifiedInputs = JSON.stringify( inputs )
     const stringifiedResults = JSON.stringify( results )
     const stringifiedExpectations = JSON.stringify( expectedOutputs )
+    inputDisplay.innerHTML = `${stringifiedInputs} (inputs)`
     showResults.innerHTML = `${stringifiedResults} (results)`
     showExpectations.innerHTML = `${stringifiedExpectations} (expectations)`
     outcome.innerHTML = stringifiedResults !== stringifiedExpectations ? "Failed" : "Passed"
