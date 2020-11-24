@@ -33,6 +33,7 @@ const runMethodWithTestCases = ( question ) => {
 const handleSelectChange = ( value ) => {
     let questionObject = getCurrentQuestionObject(value)
     setDisplayInfo(questionObject)
+    resetOutput()
 }
 
 const setDisplayInfo = ( question ) => {
@@ -47,6 +48,13 @@ const getSolution = ( value ) => {
 
 const getCurrentQuestionObject = ( displayName ) => {
     return questions.find(q => q.displayName === displayName)
+}
+
+const resetOutput = () => {
+    const outputElements = [ showResults, showExpectations, outcome ]
+    for(let i=0; i<outputElements.length; i++){
+        outputElements[i]['innerHTML'] = null
+    }
 }
 
 for(let i=0; i<questions.length; i++){
