@@ -4,6 +4,7 @@ import URLify from './src/3_URLify'
 import palindromePermutation from './src/4_Palindrome-Permutation'
 import oneAway from './src/5_One-Away'
 import stringCompression from './src/6_String-Compression'
+import rotateMatrix from './src/7_Rotate-Matrix'
 
 const questions = [ 
     isUnique,
@@ -11,7 +12,8 @@ const questions = [
     URLify,
     palindromePermutation,
     oneAway,
-    stringCompression
+    stringCompression,
+    rotateMatrix
 ]
 
 export default questions
