@@ -5,6 +5,7 @@ import palindromePermutation from './src/4_Palindrome-Permutation'
 import oneAway from './src/5_One-Away'
 import stringCompression from './src/6_String-Compression'
 import rotateMatrix from './src/7_Rotate-Matrix'
+import zeroMatrix from './src/8_Zero-Matrix'
 
 const questions = [ 
     isUnique,
@@ -13,7 +14,8 @@ const questions = [
     palindromePermutation,
     oneAway,
     stringCompression,
-    rotateMatrix
+    rotateMatrix,
+    zeroMatrix
 ]
 
 export default questions
