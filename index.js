@@ -1,4 +1,4 @@
-import questions from './questions'
+import chapters from './chapters'
 
 const pre = document.querySelector('pre')
 const select = document.querySelector('select')
@@ -60,10 +60,16 @@ const resetOutput = () => {
     }
 }
 
-for(let i=0; i<questions.length; i++){
-    const name = questions[i].displayName
-    const option = document.createElement('option')
-    option.value = name
-    option.innerText = name
-    select.appendChild(option)
+for(let i=0; i<chapters.length; i++){
+    const label = document.createElement('option')
+    label.disabled = true
+    label.innerText = `---${chapters[i].displayName}---`
+    select.appendChild(label)
+    for(let c=0; c<chapters[i].questions.length; c++){
+        const name = chapters[i].questions[c].displayName
+        const option = document.createElement('option')
+        option.value = name
+        option.innerText = name
+        select.appendChild(option)
+    }
 }
