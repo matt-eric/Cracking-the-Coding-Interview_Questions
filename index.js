@@ -50,7 +50,7 @@ const getSolution = ( value ) => {
 }
 
 const getCurrentQuestionObject = ( displayName ) => {
-    return questions.find(q => q.displayName === displayName)
+    return chapters.find(c => c.questions.find(q => q.displayName === displayName)).questions.find(q => q.displayName === displayName)
 }
 
 const resetOutput = () => {
