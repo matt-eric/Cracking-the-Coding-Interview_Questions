@@ -1,122 +1,121 @@
-const displayName = "Remove Dups"
+const removeDups = {};
 
-const instructions = "Write code to remove duplicates from an unsorted linked list."
+(() => {
 
-const method = ( list ) => {
+    removeDups.displayName = "Remove Dups";
 
-    let currentNode = {...list.head};
-    let listBuilder = [];
+    removeDups.instructions = "Write code to remove duplicates from an unsorted linked list.";
 
-    while(currentNode){
-        if( !listBuilder.find( node => node.value === currentNode.value ) ) {
-            listBuilder.push( { value: currentNode.value, next: null } );
-        }
-        currentNode = currentNode.next;
-    }
+    removeDups.method = ( list ) => {
 
-    for(let i=listBuilder.length-1; i>-1; i--){
-        if(!currentNode){
-            currentNode = listBuilder[i];
-        } else {
-            listBuilder[i].next = currentNode;
-            currentNode = listBuilder[i];
-        }
-    }
+        let currentNode = {...list.head};
+        let listBuilder = [];
 
-    return { head: currentNode }
+        while (currentNode) {
+            if ( !listBuilder.find( node => node.value === currentNode.value ) ) {
+                listBuilder.push( { value: currentNode.value, next: null } );
+            };
+            currentNode = currentNode.next;
+        };
 
-}
+        for (let i = listBuilder.length - 1; i > -1; i--) {
+            if (!currentNode) {
+                currentNode = listBuilder[i];
+            } else {
+                listBuilder[i].next = currentNode;
+                currentNode = listBuilder[i];
+            };
+        };
 
-const tests = {
-    inputs: [ 
-        {
-            head: {
-                value: 12,
-                next: {
-                    value: 10,                                           
+        return { head: currentNode };
+
+    };
+
+    removeDups.tests = {
+        inputs: [ 
+            {
+                head: {
+                    value: 12,
                     next: {
-                        value: 12,
+                        value: 10,                                           
                         next: {
-                            value: 3,
-                            next: null	
+                            value: 12,
+                            next: {
+                                value: 3,
+                                next: null,
+                            }
+                        }
+                    }
+                }
+            },
+            {
+                head: {
+                    value: 12,
+                    next: {
+                        value: 10,                                           
+                        next: {
+                            value: 12,
+                            next: {
+                                value: 3,
+                                next: {
+                                    value: 10,                                           
+                                    next: {
+                                        value: 3,
+                                        next: {
+                                            value: 3,
+                                            next: {
+                                                value: 7,                                           
+                                                next: {
+                                                    value: 12,
+                                                    next: {
+                                                        value: 5,
+                                                        next: null,
+                                                    }
+                                                }
+                                            }	
+                                        }
+                                    }
+                                }	
+                            }
                         }
                     }
                 }
             }
-        },
-        {
-            head: {
-                value: 12,
-                next: {
-                    value: 10,                                           
+        ],
+        expectedOutputs: [ 
+            {
+                head: {
+                    value: 12,
                     next: {
-                        value: 12,
+                        value: 10,                                           
+                        next: {
+                            value: 3,
+                            next: null,
+                        }
+                    }
+                }
+            },
+            {
+                head: {
+                    value: 12,
+                    next: {
+                        value: 10,                                           
                         next: {
                             value: 3,
                             next: {
-                                value: 10,                                           
+                                value: 7,                                           
                                 next: {
-                                    value: 3,
-                                    next: {
-                                        value: 3,
-                                        next: {
-                                            value: 7,                                           
-                                            next: {
-                                                value: 12,
-                                                next: {
-                                                    value: 5,
-                                                    next: null	
-                                                }
-                                            }
-                                        }	
-                                    }
+                                    value: 5,
+                                    next: null,
                                 }
                             }	
                         }
                     }
                 }
             }
-        }
-     ],
-    expectedOutputs: [ 
-        {
-            head: {
-                value: 12,
-                next: {
-                    value: 10,                                           
-                    next: {
-                        value: 3,
-                        next: null	
-                    }
-                }
-            }
-        },
-        {
-            head: {
-                value: 12,
-                next: {
-                    value: 10,                                           
-                    next: {
-                        value: 3,
-                        next: {
-                            value: 7,                                           
-                            next: {
-                                value: 5,
-                                next: null	
-                            }
-                        }	
-                    }
-                }
-            }
-        }
-    ],
-}
+        ],
+    };
 
-const removeDups = {
-    displayName,
-    instructions,
-    method,
-    tests
-}
+})();
 
-export default removeDups
+export default removeDups;
