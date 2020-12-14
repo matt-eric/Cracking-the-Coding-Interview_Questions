@@ -1,136 +1,135 @@
-const displayName = "Return Kth to Last"
+const returnKthToLast = {};
 
-const instructions = "Implement an algorithm to find the kth to last element of a singly linked list."
+(() => {
 
-const method = ( listInput ) => {
+    returnKthToLast.displayName = "Return Kth to Last";
 
-    let { k, list } = listInput;
-    let currentNode = {...list.head};
-    let listBuilder = [];
-    let nodeCount = 0;
+    returnKthToLast.instructions = "Implement an algorithm to find the kth to last element of a singly linked list.";
 
-    while(currentNode){
-        nodeCount++;
-        listBuilder.push( { value: currentNode.value, next: null } );
-        currentNode = currentNode.next;
-    };
+    returnKthToLast.method = ( listInput ) => {
 
-    listBuilder = listBuilder.splice(listBuilder.length-1-k);
+        let { k, list } = listInput;
+        let currentNode = {...list.head};
+        let listBuilder = [];
+        let nodeCount = 0;
 
-    for(let i=nodeCount-1; i>-1; i--){
-        if(!currentNode){
-            currentNode = listBuilder[i];
-        } else {
-            listBuilder[i].next = currentNode;
-            currentNode = listBuilder[i];
+        while (currentNode) {
+            nodeCount++;
+            listBuilder.push( { value: currentNode.value, next: null } );
+            currentNode = currentNode.next;
         };
-    };
 
-    return currentNode;
+        listBuilder = listBuilder.splice(listBuilder.length-1-k);
 
-}
+        for (let i = nodeCount-1; i > -1; i--) {
+            if (!currentNode) {
+                currentNode = listBuilder[i];
+            } else {
+                listBuilder[i].next = currentNode;
+                currentNode = listBuilder[i];
+            };
+        };
 
-const tests = {
-    inputs: [ 
-        {
-            k: 2,
-            list: {
-                head: {
-                    value: 12,
-                    next: {
-                        value: 10,                                           
+        return currentNode;
+
+    }
+
+    returnKthToLast.tests = {
+        inputs: [ 
+            {
+                k: 2,
+                list: {
+                    head: {
+                        value: 12,
                         next: {
-                            value: 12,
+                            value: 10,                                           
                             next: {
-                                value: 3,
-                                next: null	
+                                value: 12,
+                                next: {
+                                    value: 3,
+                                    next: null	
+                                }
+                            }
+                        }
+                    }
+                },
+            },
+            {
+                k: 7,
+                list: {
+                    head: {
+                        value: 12,
+                        next: {
+                            value: 10,                                           
+                            next: {
+                                value: 12,
+                                next: {
+                                    value: 3,
+                                    next: {
+                                        value: 10,                                           
+                                        next: {
+                                            value: 3,
+                                            next: {
+                                                value: 3,
+                                                next: {
+                                                    value: 7,                                           
+                                                    next: {
+                                                        value: 12,
+                                                        next: {
+                                                            value: 5,
+                                                            next: null	
+                                                        }
+                                                    }
+                                                }	
+                                            }
+                                        }
+                                    }	
+                                }
                             }
                         }
                     }
                 }
-            },
-        },
-        {
-            k: 7,
-            list: {
-                head: {
+            }    
+        ],
+        expectedOutputs: [ 
+            {
+                value: 10,                                           
+                next: {
                     value: 12,
+                    next: {
+                        value: 3,
+                        next: null	
+                    }
+                }
+            },
+            {
+                value: 12,
+                next: {
+                    value: 3,
                     next: {
                         value: 10,                                           
                         next: {
-                            value: 12,
+                            value: 3,
                             next: {
                                 value: 3,
                                 next: {
-                                    value: 10,                                           
+                                    value: 7,                                           
                                     next: {
-                                        value: 3,
+                                        value: 12,
                                         next: {
-                                            value: 3,
-                                            next: {
-                                                value: 7,                                           
-                                                next: {
-                                                    value: 12,
-                                                    next: {
-                                                        value: 5,
-                                                        next: null	
-                                                    }
-                                                }
-                                            }	
+                                            value: 5,
+                                            next: null	
                                         }
                                     }
                                 }	
                             }
                         }
-                    }
+                    }	
                 }
             }
-        }    
-     ],
-    expectedOutputs: [ 
-        {
-            value: 10,                                           
-            next: {
-                value: 12,
-                next: {
-                    value: 3,
-                    next: null	
-                }
-            }
-        },
-        {
-            value: 12,
-            next: {
-                value: 3,
-                next: {
-                    value: 10,                                           
-                    next: {
-                        value: 3,
-                        next: {
-                            value: 3,
-                            next: {
-                                value: 7,                                           
-                                next: {
-                                    value: 12,
-                                    next: {
-                                        value: 5,
-                                        next: null	
-                                    }
-                                }
-                            }	
-                        }
-                    }
-                }	
-            }
-        }
-     ],
-}
+        ],
+    };
 
-const returnKthToLast = {
-    displayName,
-    instructions,
-    method,
-    tests
-}
+})();
 
-export default returnKthToLast
+export default returnKthToLast;
